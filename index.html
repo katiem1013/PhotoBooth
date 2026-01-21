@@ -3,15 +3,20 @@
     <head>
         <meta charset="UTF-8">
         <title>Photobooth!</title>
+        
         <link href="style.css" rel="stylesheet">
     </head>
 
 
-    <body>
-        <h1>Photobooth!</h1>
+    <body onload="main()">
+        <h1>My Photobooth!</h1>
 
+        <canvas id="canvas" width="1176" height="1470"></canvas>
+        <video id="liveVideo" autoplay playsinline muted></video>
         
 
+        
         <script src = "photobooth.js"></script>
+        
     </body>
 <html>
