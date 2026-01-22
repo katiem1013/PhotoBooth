@@ -59,6 +59,24 @@ video{
   max-width: 500px;
 }
 
+.photostrip{
+  display:flex;
+  flex-direction: column;
+  align-items: left;
+  gap:10px;
+
+  margin: 10px;
+}
+
+.images{
+  display: flex;
+  align-items: center;
+}
+
+.photobooth-container{
+  height: 300px;
+}
+
 /* SHUTTER CONTAINER */
 .shutter-ctn {
   display: flex;

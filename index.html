@@ -10,15 +10,23 @@
 
     <body>
         <h1>My Photobooth!</h1>
-        <div class="photobooth-container" id="booth">
-            <canvas id="photoCanvas"  width="1176" height="1470"></canvas>
+        <div class="photobooth-container" id="booth" width="288" height="192">
+            <canvas id="photoCanvas"></canvas>
             <video id="camera-stream">
-                <source src="">
             </video>
+        
+
+            <div class="photostrip" id="strip">
+                <image class="images" id="img-1" src="temp.jpg" width="28.8" height="19.2"></image>
+                <image class="images" id="img-2" src="temp.jpg" width="28.8" height="19.2"></image>
+                <image class="images" id="img-3" src="temp.jpg" width="28.8" height="19.2"></image>
+                <image class="images" id="img-4" src="temp.jpg" width="28.8" height="19.2"></image>
+            </div>
         </div>
+
         <p></p>
         <div class="shutter-ctn">
-            <button  id="shutter" class="shutter">Take Photo!</button>
+            <button id="shutter" class="shutter">Take Photo!</button>
         </div>
         <script src = "photobooth.js"></script>
         

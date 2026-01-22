@@ -41,12 +41,17 @@ const cameraSetup = () => {
 };
 
 const takePhoto = () => { 
-  const { video, canvas, ctx} = elements;
+  photoStage++;
+  const { video, ctx, canvas} = elements;
   canvas.width = width;
   canvas.height = height;
-  
-  ctx.save();
-  ctx.drawImage(video, 0, 0, width, height);
+
+  ctx.drawImage(video,0, 0, width, height);
+
+  const image = canvas.toDataURL('image/png');
+  document.getElementById('img-'+photoStage);
+
+  console.log('snap');
 };
 
 elements.shutterButton.addEventListener('click', () => takePhoto());
