@@ -4,8 +4,6 @@ let streaming = false;
 
 var photoStage = 0;
 
-const QUATER = height/4;
-
 const elements = {
   video: document.getElementById('camera-stream'),
   shutterButton: document.getElementById('shutter'),
