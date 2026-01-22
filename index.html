@@ -12,11 +12,14 @@
         <h1>My Photobooth!</h1>
         <div class="photobooth-container" id="booth">
             <canvas id="photoCanvas"  width="1176" height="1470"></canvas>
-            <video id="liveVideo" autoplay playsinline muted></video>
+            <video id="camera-stream">
+                <source src="">
+            </video>
         </div>
         <p></p>
-        <button  id="takePhotoButton" onclick="takePhoto()">Take Photo!</button>
-        
+        <div class="shutter-ctn">
+            <button  id="shutter" class="shutter">Take Photo!</button>
+        </div>
         <script src = "photobooth.js"></script>
         
     </body>

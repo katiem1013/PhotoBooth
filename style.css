@@ -1,20 +1,82 @@
 body {
-  font-family: sans-serif;
-  background: #eee;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
+  margin: 0;
+  max-height: 100vh;
+  overflow: hidden;
+}
+canvas {
+  display: none;
+}
+button {
+  border: 0;
+  outline: none;
+  background: #1f7e9d70;
+  color: #000000;
+  padding: 4px 8px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  margin: auto;
 }
 
-.photobooth-container {
+.camera-ctn {
   position: relative;
-  width: 60vmin;
-  max-width: 588px;
-  aspect-ratio: 588 / 735;
-  background: #D5E8EB;
-  overflow: hidden;
+  background: #000000;
+}
+.camera-view video {
+  height: 100vh;
+  width: 100vw;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.photobooth-container{
+  display: block;
+  margin: 0 auto;
+}
+
+video{
+  display: block;
+  margin: 0 auto;
+}
+
+/* CAMERA BOTTOM */
+.camera-bottom {
+  height: 250px;
+  background: #00000050;
+  position: absolute;
+  inset: 0;
+  top: auto;
+  padding: 0 5%;
+  display: grid;
+  place-items: center;
+}
+.camera-bottom > .inner {
+  display: grid;
+  place-items: center;
+  max-width: 500px;
+}
+
+/* SHUTTER CONTAINER */
+.shutter-ctn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+.shutter {
+  height: 80px;
+  width: 80px;
+  background: #FFFFFF;
+  border-radius: 50%;
+}
+.shutter:active {
+  transform: scale(0.8);
+}
+.switch-device {
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
 }
