@@ -48,8 +48,8 @@ const takePhoto = () => {
 
   ctx.drawImage(video,0, 0, width, height);
 
-  const image = canvas.toDataURL('image/png');
-  document.getElementById('img-'+photoStage);
+  const image = canvas.toDataURL('image.png');
+  document.getElementById('img-'+photoStage).src=image;
 
   console.log('snap');
 };

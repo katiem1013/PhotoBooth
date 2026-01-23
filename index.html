@@ -10,24 +10,30 @@
 
     <body>
         <h1>My Photobooth!</h1>
-        <div class="photobooth-container" id="booth" width="288" height="192">
-            <canvas id="photoCanvas"></canvas>
-            <video id="camera-stream">
-            </video>
-        
 
+        <div class="photobooth-container" id="booth" width="288" height="192">
+            
             <div class="photostrip" id="strip">
-                <image class="images" id="img-1" src="temp.jpg" width="28.8" height="19.2"></image>
-                <image class="images" id="img-2" src="temp.jpg" width="28.8" height="19.2"></image>
-                <image class="images" id="img-3" src="temp.jpg" width="28.8" height="19.2"></image>
-                <image class="images" id="img-4" src="temp.jpg" width="28.8" height="19.2"></image>
+                <image class="images" id="img-1" src="temp.jpg" width="115.2" height="76.8"></image>
+                <image class="images" id="img-2" src="temp.jpg" width="115.2" height="76.8"></image>
+                <image class="images" id="img-3" src="temp.jpg" width="115.2" height="76.8"></image>
+                <image class="images" id="img-4" src="temp.jpg" width="115.2" height="76.8"></image>
             </div>
+
+            <div class="button-line">
+                <canvas id="photoCanvas"></canvas>
+                <video id="camera-stream">
+                </video>
+
+                <div class="shutter-ctn">
+                    <button id="shutter" class="shutter">Take Photo!</button>
+                </div>
+            </div >
+            
         </div>
 
         <p></p>
-        <div class="shutter-ctn">
-            <button id="shutter" class="shutter">Take Photo!</button>
-        </div>
+        
         <script src = "photobooth.js"></script>
         
     </body>
