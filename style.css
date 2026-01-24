@@ -11,6 +11,7 @@ h1{
 canvas {
   display: none;
 }
+
 button {
   border: 0;
   outline: none;
@@ -32,14 +33,15 @@ button {
   transform: scaleX(-1);
 }
 
-.photobooth-container{
-  display: block;
-  margin: 0 auto;
-}
-
 video{
   display: block;
   margin: 0 auto;
+
+  position: relative;
+  top: -60px;
+
+  border: 5px #C13B3C solid;
+  border-radius: 2px;
 }
 
 /* CAMERA BOTTOM */
@@ -62,26 +64,51 @@ video{
 .photostrip{
   display:flex;
   flex-direction: column;
-  gap:10px;
+  gap:4px;
 
-  margin: 50px;
+
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.frame{
+  position: absolute;
+  top: -4.5px;
+  left: -4px;
 }
 
 .images{
   display: flex;
   align-items: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  
 }
 
 .photobooth-container{
+  text-align: center;
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin: 50px;
+  
 }
 
 .button-line{
   display: inline-block;
-  padding: 100px;
+  padding: 50px;
   text-align: center;
+}
+
+.next-prev{
+  height: 40px;
+  width: 80px;
+  background: #FFFFFF;
+  border-radius: 0%;
+
+  position: relative;
+  top: 100px;
 }
 
 /* SHUTTER CONTAINER */
@@ -89,10 +116,13 @@ video{
   width: 100%;
 }
 .shutter {
-  height: 80px;
+  height: 40px;
   width: 80px;
   background: #FFFFFF;
-  border-radius: 50%;
+  border-radius: 0%;
+
+  position: relative;
+  top: -50px;
 }
 .shutter:active {
   transform: scale(0.8);

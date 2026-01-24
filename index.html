@@ -12,12 +12,21 @@
         <h1>My Photobooth!</h1>
 
         <div class="photobooth-container" id="booth" width="288" height="192">
-            
-            <div class="photostrip" id="strip">
-                <image class="images" id="img-1" src="temp.jpg" width="115.2" height="76.8"></image>
-                <image class="images" id="img-2" src="temp.jpg" width="115.2" height="76.8"></image>
-                <image class="images" id="img-3" src="temp.jpg" width="115.2" height="76.8"></image>
-                <image class="images" id="img-4" src="temp.jpg" width="115.2" height="76.8"></image>
+            <div class="button-line">
+
+                <div class="photostrip" id="strip">
+                    <image class="frame" id="frame" src="images/frame1.PNG" width="181.5" height="564">
+                        <image class="images" id="img-1" src="images/background.PNG" width="172.8" height="115.2"></image>
+                        <image class="images" id="img-2" src="images/background.PNG" width="172.8" height="115.2"></image>
+                        <image class="images" id="img-3" src="images/background.PNG" width="172.8" height="115.2"></image>
+                        <image class="images" id="img-4" src="images/background.PNG" width="172.8" height="115.2"></image>
+                    </image>                    
+                </div>
+
+                <button id="prev-bttn" class="next-prev">Prev</button>
+                <button id="next-bttn" class="next-prev">Next</button>
+                
+                
             </div>
 
             <div class="button-line">

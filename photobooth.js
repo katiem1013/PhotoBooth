@@ -3,13 +3,42 @@ let height = 192;
 let streaming = false;
 
 var photoStage = 0;
+var frames=1;
 
 const elements = {
   video: document.getElementById('camera-stream'),
   shutterButton: document.getElementById('shutter'),
   canvas: document.getElementById('photoCanvas'),
-  ctx: document.getElementById('photoCanvas').getContext('2d')
+  ctx: document.getElementById('photoCanvas').getContext('2d'),
+  nextButton: document.getElementById('next-bttn'),
+  prevButton: document.getElementById('prev-bttn'),
 };
+
+elements.nextButton.addEventListener("click", nextBTTN);
+elements.prevButton.addEventListener("click", prevBTTN);
+
+function nextBTTN(){
+  frames++;
+  if(frames >= 6)
+  {
+    frames=1;
+  }
+  frameUpdate();
+}
+
+function prevBTTN(){
+  frames--;
+  if(frames <= 0)
+  {
+    frames=5;
+  }
+  frameUpdate();
+}
+
+const frameUpdate = () => {
+  document.getElementById('frame').src="images/frame"+frames+".png";
+  console.log(frames);
+}
 
 elements.video.addEventListener(
   "canplay",
