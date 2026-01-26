@@ -5,6 +5,8 @@ let streaming = false;
 var photoStage = 0;
 var frames=1;
 
+import domtoimage from 'dom-to-image-more'; //the issue?
+
 const elements = {
   video: document.getElementById('camera-stream'),
   shutterButton: document.getElementById('shutter'),
@@ -12,9 +14,11 @@ const elements = {
   ctx: document.getElementById('photoCanvas').getContext('2d'),
   nextButton: document.getElementById('next-bttn'),
   prevButton: document.getElementById('prev-bttn'),
+  downloadButton: document.getElementById('download-bttn'),
 };
 
 elements.nextButton.addEventListener("click", nextBTTN);
+elements.downloadButton.addEventListener("click", downloadPhoto);
 elements.prevButton.addEventListener("click", prevBTTN);
 
 function nextBTTN(){
@@ -24,6 +28,18 @@ function nextBTTN(){
     frames=1;
   }
   frameUpdate();
+}
+
+function downloadPhoto(){
+  // downloading is not working 
+  domtoimage
+    .toJpeg(document.getElementById('strip'), { quality: 0.95 })
+    .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'my-image-name.jpeg';
+        link.href = dataUrl;
+        link.click();
+    });
 }
 
 function prevBTTN(){
@@ -82,6 +98,7 @@ const takePhoto = () => {
 
   console.log('snap');
 };
+
 
 elements.shutterButton.addEventListener('click', () => takePhoto());
 
