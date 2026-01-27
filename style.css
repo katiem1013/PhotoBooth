@@ -111,6 +111,11 @@ video{
   top: 100px;
 }
 
+#strip {
+  box-sizing: border-box;
+  overflow: visible !important; /* Prevents clipping */
+}
+
 /* SHUTTER CONTAINER */
 .shutter-ctn {
   width: 100%;

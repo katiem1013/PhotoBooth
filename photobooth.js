@@ -5,7 +5,6 @@ let streaming = false;
 var photoStage = 0;
 var frames=1;
 
-import domtoimage from 'dom-to-image-more'; //the issue?
 
 const elements = {
   video: document.getElementById('camera-stream'),
@@ -15,10 +14,10 @@ const elements = {
   nextButton: document.getElementById('next-bttn'),
   prevButton: document.getElementById('prev-bttn'),
   downloadButton: document.getElementById('download-bttn'),
+  photostrip: document.getElementById('strip'),
 };
 
 elements.nextButton.addEventListener("click", nextBTTN);
-elements.downloadButton.addEventListener("click", downloadPhoto);
 elements.prevButton.addEventListener("click", prevBTTN);
 
 function nextBTTN(){
@@ -28,18 +27,6 @@ function nextBTTN(){
     frames=1;
   }
   frameUpdate();
-}
-
-function downloadPhoto(){
-  // downloading is not working 
-  domtoimage
-    .toJpeg(document.getElementById('strip'), { quality: 0.95 })
-    .then(function (dataUrl) {
-        var link = document.createElement('a');
-        link.download = 'my-image-name.jpeg';
-        link.href = dataUrl;
-        link.click();
-    });
 }
 
 function prevBTTN(){
@@ -99,6 +86,34 @@ const takePhoto = () => {
   console.log('snap');
 };
 
+ const h2c = window.html2canvas || html2canvas;
+
+document.getElementById('download-bttn').onclick = function(){
+  const { photostrip} = elements;
+
+  h2c(photostrip,{
+    allowTaint: true,
+    useCORS: true,
+    scale: 2,
+    width: photostrip.scrollWidth,
+    height: photostrip.scrollHeight,
+    x: -10,
+    y: -10,
+    scrollX: 0,
+    scrollY: 0,
+    windowWidth: document.documentElement.offsetWidth,
+    windowHeight: document.documentElement.offsetHeight
+  }).then((canvas) =>{
+    const base64image = canvas.toDataURL("image/png");
+    var anchor = document.createElement('a');
+    anchor.setAttribute("href", base64image);
+    anchor.setAttribute("download", "photostrip.png");
+    anchor.click();
+    anchor.remove();
+  }).catch(err => {
+    console.error("html2canvas failed:", err);
+  });
+}
 
 elements.shutterButton.addEventListener('click', () => takePhoto());
 
