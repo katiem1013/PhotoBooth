@@ -92,7 +92,7 @@ video{
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 .button-line{
@@ -109,6 +109,30 @@ video{
 
   position: relative;
   top: 100px;
+}
+
+.countdown{
+  z-index: 100;
+  color: #C13B3C;
+
+  align-items: center;
+  justify-content: center;
+  text-align:center;
+  
+  font-size: 1.697rem;
+  font-weight: 400;
+  line-height: 1;
+  pointer-events: none;
+  transition: none;
+
+  height:100px;
+  width:100px;
+
+  display: flex;
+  position: relative;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #strip {

@@ -13,11 +13,14 @@ const elements = {
   ctx: document.getElementById('photoCanvas').getContext('2d'),
   nextButton: document.getElementById('next-bttn'),
   prevButton: document.getElementById('prev-bttn'),
+  clearButton: document.getElementById('clear-bttn'),
   downloadButton: document.getElementById('download-bttn'),
   photostrip: document.getElementById('strip'),
+  countdownImg: document.getElementById('countdown'),
 };
 
 elements.nextButton.addEventListener("click", nextBTTN);
+elements.clearButton.addEventListener("click", clearPhotos);
 elements.prevButton.addEventListener("click", prevBTTN);
 
 function nextBTTN(){
@@ -27,6 +30,17 @@ function nextBTTN(){
     frames=1;
   }
   frameUpdate();
+}
+
+function clearPhotos(){
+  document.getElementById('img-1').src='images/background.PNG';
+  document.getElementById('img-2').src='images/background.PNG';
+  document.getElementById('img-3').src='images/background.PNG';
+  document.getElementById('img-4').src='images/background.PNG';
+
+  photoStage=0;
+
+  elements.shutterButton.style.display = 'inline-block';
 }
 
 function prevBTTN(){
@@ -73,18 +87,42 @@ const cameraSetup = () => {
 };
 
 const takePhoto = () => { 
-  photoStage++;
-  const { video, ctx, canvas} = elements;
-  canvas.width = width;
-  canvas.height = height;
+  if(photoStage < 4){
+    photoStage++;
+    const { video, ctx, canvas} = elements;
+    canvas.width = width;
+    canvas.height = height;
 
-  ctx.drawImage(video,0, 0, width, height);
+    ctx.drawImage(video,0, 0, width, height);
 
-  const image = canvas.toDataURL('image.png');
-  document.getElementById('img-'+photoStage).src=image;
+    const image = canvas.toDataURL('image.png');
+    document.getElementById('img-'+photoStage).src=image;
 
-  console.log('snap');
+    console.log('snap');
+    
+    countdown(3);
+  }
 };
+
+function countdown(time){
+  if(photoStage < 4){
+    elements.countdownImg
+    elements.countdownImg.innerHTML = time;
+    if (time>0){
+      console.log(time);
+      setTimeout(function(){countdown(time-1)},1000);
+    }
+    else{
+      takePhoto();
+    };
+  }
+
+  else{
+    elements.countdownImg.style.display = 'none'
+  }
+
+  elements.shutterButton.style.display = 'none'
+}
 
  const h2c = window.html2canvas || html2canvas;
 
@@ -115,6 +153,6 @@ document.getElementById('download-bttn').onclick = function(){
   });
 }
 
-elements.shutterButton.addEventListener('click', () => takePhoto());
+elements.shutterButton.addEventListener('click', () => countdown(3));
 
 cameraSetup();
