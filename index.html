@@ -10,11 +10,13 @@
 
 
     <body>
-        <h1>My Photobooth!</h1>
+        <header>
+            <h1>Photobooth!</h1>
+            <h3>Take your photos here!</h3>
+        </header>
 
         <div class="photobooth-container" id="booth" width="288" height="192">
             <div class="button-line">
-
                 <div class="photostrip" id="strip">
                     <image class="frame" id="frame" src="images/frame1.PNG" width="181.5" height="564">
                         <image class="images" id="img-1" src="images/background.PNG" width="172.8" height="115.2"></image>
@@ -23,32 +25,27 @@
                         <image class="images" id="img-4" src="images/background.PNG" width="172.8" height="115.2"></image>
                     </image>                    
                 </div>
-
-                <button id="prev-bttn" class="next-prev">Prev</button>
-                <button id="next-bttn" class="next-prev">Next</button>
-
-                <p></p>
-
-                <button id="download-bttn" class="next-prev">Download</button>
-                <button id="clear-bttn" class="next-prev">Clear</button>
-                
-                
+            
+                <div class="buttons-grid">
+                    <!--figure out where buttons are actually going-->
+                    <button id="prev-bttn" class="next-prev" style="background-color: #C13B3C;">Prev</button>
+                    <button id="next-bttn" class="next-prev" style="background-color: #F37A3B;">Next</button>
+                    
+                    <button id="download-bttn" class="next-prev" style="background-color: #FFC854;">Download</button>
+                    <button id="clear-bttn" class="next-prev" style="background-color: #1E75BB;">Clear</button>
+                </div>
             </div>
-
+            
             <div class="button-line">
                <p id="countdown" class="countdown"></p>
                 <canvas id="photoCanvas"> </canvas>
                 <video id="camera-stream">
                 </video>
                 <div class="shutter-ctn">
-                    <button id="shutter" class="shutter">Take Photo!</button>
+                    <button id="shutter" class="shutter" style="background-color: #00b730;">Take Photo!</button>
                 </div>
             </div >
-            
         </div>
-
-        <p></p>
-
         <script src="html2canvas.min.js"></script>
         <script src = "photobooth.js"></script>
         
