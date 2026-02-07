@@ -135,7 +135,7 @@ document.getElementById('download-bttn').onclick = function(){
     scale: 2,
     width: photostrip.scrollWidth,
     height: photostrip.scrollHeight,
-    x: -10,
+    x: -3.5,
     y: -10,
     scrollX: 0,
     scrollY: 0,
