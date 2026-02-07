@@ -4,6 +4,7 @@ let streaming = false;
 
 var photoStage = 0;
 var frames=1;
+var filter=1;
 
 
 const elements = {
@@ -17,7 +18,51 @@ const elements = {
   downloadButton: document.getElementById('download-bttn'),
   photostrip: document.getElementById('strip'),
   countdownImg: document.getElementById('countdown'),
+  prevFilter: document.getElementById('prev-filter'),
+  nextFilter: document.getElementById('next-filter'),
 };
+
+elements.nextFilter.addEventListener("click", nextfilter);
+elements.prevFilter.addEventListener("click", prevfilter);
+
+function nextfilter(){
+  filter++;
+  if(filter >= 6)
+  {
+    filter=1;
+  }
+  
+  filterUpdate();
+}
+
+function prevfilter(){
+  filter--;
+  if(filter <= 0)
+  {
+    filter=5;
+  }
+  
+  filterUpdate();
+}
+
+const filterUpdate = () => {
+  const { canvas, ctx} = elements;
+
+  if (filter === 1) {
+    canvas.style.filter = `${"none"} translateZ(0)`;
+    ctx.filter = "none";
+} 
+else if (filter === 2) {
+    canvas.style.filter = `${"grayscale(100%)"} translateZ(0)`;
+    canvas.style.webkitFilter = `${"grayscale(100%)"} translateZ(0)`;
+    ctx.filter = "grayscale(100%)";
+}
+
+  
+  console.log(filter);
+  
+}
+
 
 elements.nextButton.addEventListener("click", nextBTTN);
 elements.clearButton.addEventListener("click", clearPhotos);
@@ -30,17 +75,6 @@ function nextBTTN(){
     frames=1;
   }
   frameUpdate();
-}
-
-function clearPhotos(){
-  document.getElementById('img-1').src='images/background.PNG';
-  document.getElementById('img-2').src='images/background.PNG';
-  document.getElementById('img-3').src='images/background.PNG';
-  document.getElementById('img-4').src='images/background.PNG';
-
-  photoStage=0;
-
-  elements.shutterButton.style.display = 'inline-block';
 }
 
 function prevBTTN(){
@@ -73,6 +107,27 @@ elements.video.addEventListener(
   false
 );
 
+function countdown(time){
+  if(photoStage < 4){
+    elements.countdownImg.style.display = 'flex'
+    elements.countdownImg
+    elements.countdownImg.innerHTML = time;
+    if (time>0){
+      console.log(time);
+      setTimeout(function(){countdown(time-1)},1000);
+    }
+    else{
+      takePhoto();
+    };
+  }
+
+  else{
+    elements.countdownImg.style.display = 'none'
+  }
+
+  elements.shutterButton.style.display = 'none'
+}
+
 const cameraSetup = () => {
   const { video } = elements;
 
@@ -104,24 +159,15 @@ const takePhoto = () => {
   }
 };
 
-function countdown(time){
-  if(photoStage < 4){
-    elements.countdownImg
-    elements.countdownImg.innerHTML = time;
-    if (time>0){
-      console.log(time);
-      setTimeout(function(){countdown(time-1)},1000);
-    }
-    else{
-      takePhoto();
-    };
-  }
+function clearPhotos(){
+  document.getElementById('img-1').src='images/background.PNG';
+  document.getElementById('img-2').src='images/background.PNG';
+  document.getElementById('img-3').src='images/background.PNG';
+  document.getElementById('img-4').src='images/background.PNG';
 
-  else{
-    elements.countdownImg.style.display = 'none'
-  }
+  photoStage=0;
 
-  elements.shutterButton.style.display = 'none'
+  elements.shutterButton.style.display = 'inline-block';
 }
 
  const h2c = window.html2canvas || html2canvas;
