@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>Photobooth!</title>
         
-        <link href="style.css" rel="stylesheet">
+        <link href="../css/style.css" rel="stylesheet">
 
     </head>
 
@@ -18,11 +18,11 @@
         <div class="photobooth-container" id="booth" width="288" height="192">
             <div class="button-line">
                 <div class="photostrip" id="strip">
-                    <image class="frame" id="frame" src="images/frame1.PNG" width="181.5" height="564">
-                        <image class="images" id="img-1" src="images/background.PNG" width="172.8" height="115.2"></image>
-                        <image class="images" id="img-2" src="images/background.PNG" width="172.8" height="115.2"></image>
-                        <image class="images" id="img-3" src="images/background.PNG" width="172.8" height="115.2"></image>
-                        <image class="images" id="img-4" src="images/background.PNG" width="172.8" height="115.2"></image>
+                    <image class="frame" id="frame" src="../images/frame1.PNG" width="181.5" height="564">
+                        <image class="images" id="img-1" src="../images/background.PNG" width="172.8" height="115.2"></image>
+                        <image class="images" id="img-2" src="../images/background.PNG" width="172.8" height="115.2"></image>
+                        <image class="images" id="img-3" src="../images/background.PNG" width="172.8" height="115.2"></image>
+                        <image class="images" id="img-4" src="../images/background.PNG" width="172.8" height="115.2"></image>
                     </image>                    
                 </div>
             
@@ -38,6 +38,7 @@
             
             <div class="button-line">
                <p id="countdown" class="countdown"></p>
+               
                 <canvas id="photoCanvas"> </canvas>
                 <video id="camera-stream">
                 </video>
@@ -48,8 +49,8 @@
                 </div>
             </div >
         </div>
-        <script src="html2canvas.min.js"></script>
-        <script src = "photobooth.js"></script>
+        <script src="../javascript/html2canvas.min.js"></script>
+        <script src = "../javascript/photobooth.js"></script>
         
     </body>
 <html>

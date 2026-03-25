@@ -4,7 +4,7 @@ body {
   margin: 0;
   overflow: hidden;
 
-  background-image: url("images/background.PNG");
+  background-image: url("../images/background.PNG");
   border: 1.5vw #C13B3C double;
 }
 
@@ -27,7 +27,14 @@ h3{
 
 
 canvas {
-  display: none;
+  will-change: filter, transform;
+  margin: 0 auto;
+
+  position: relative;
+  top: -60px;
+
+  border: 5px #C13B3C solid;
+  border-radius: 2px;
 }
 
 .camera-ctn {
@@ -42,14 +49,7 @@ canvas {
 }
 
 video{
-  display: block;
-  margin: 0 auto;
-
-  position: relative;
-  top: -60px;
-
-  border: 5px #C13B3C solid;
-  border-radius: 2px;
+  display: none;
 }
 
 /* CAMERA BOTTOM */
