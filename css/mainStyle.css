@@ -1,0 +1,98 @@
+body {
+    box-sizing: border-box;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+
+    font-family: 'Comic Sans MS', cursive;
+    justify-content: center;
+
+    display: flex;
+    height: 100vh;
+    margin: 0;
+
+  background-image: url("../images/background.PNG");
+    border: 1.5vw #C13B3C double;
+}
+
+
+img{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.wave-text{
+    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+}
+
+.wave-text span {
+    display: inline-block;
+    margin-top: 100px;
+
+    font-size: 4rem;
+    font-weight: bold;
+    color: #C13B3C;
+
+    animation: wave 2s ease-in-out infinite;
+}
+
+.wave-text span:nth-child(1) {
+    animation-delay: 0s;
+}
+.wave-text span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.wave-text span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+.wave-text span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+.wave-text span:nth-child(5) {
+    animation-delay: 0.8s;
+}
+.wave-text span:nth-child(6) {
+    animation-delay: 1s;
+}
+.wave-text span:nth-child(7) {
+    animation-delay: 1.2s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.wave-container{
+    height: 50px;
+}
+
+a{
+    position: absolute;
+    top: 50%;
+}
+
+button{
+    cursor: pointer;
+
+
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+
+    border:0.16em solid rgba(255,255,255,0);
+    border-radius:1em;
+    box-sizing: border-box;
+    
+    color:#FFFFFF;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+
+    font-size: large;
+    font-family: 'Comic Sans MS', cursive;
+}
