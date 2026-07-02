@@ -7,28 +7,20 @@ body {
     font-family: 'Comic Sans MS', cursive;
     justify-content: center;
 
-    display: flex;
-    height: 100vh;
-    margin: 0;
 
   background-image: url("../images/background.PNG");
     border: 1.5vw #C13B3C double;
 }
 
-
-img{
-    position: absolute;
-    right: 0px;
-    bottom: 0px;
-}
-
 .wave-text{
-    text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
+    text-shadow: -2px -2px 0 #ffb6b7, 2px -2px 0 #ffb6b7, -2px 2px 0 #a3292e, 2px 2px 0 #a3292e;
+    text-align: center;
 }
 
 .wave-text span {
     display: inline-block;
     margin-top: 100px;
+
 
     font-size: 4rem;
     font-weight: bold;
@@ -68,31 +60,26 @@ img{
     }
 }
 
-.wave-container{
-    height: 50px;
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-a{
-    position: absolute;
-    top: 50%;
+.wave-container, .booth-container{
+    height: 200px;
+    width: 800px;
+}
+ 
+.booth-container{
+    margin-top: 30px;
 }
 
-button{
-    cursor: pointer;
+.boothImg{
+    width: 800px;
+}
 
-
-    padding:0.3em 1.2em;
-    margin:0 0.1em 0.1em 0;
-
-    border:0.16em solid rgba(255,255,255,0);
-    border-radius:1em;
-    box-sizing: border-box;
-    
-    color:#FFFFFF;
-    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
-    text-align:center;
-    transition: all 0.2s;
-
-    font-size: large;
-    font-family: 'Comic Sans MS', cursive;
+.boothImg:hover{
+    content: url('../images/menuImgOpen.PNG');
+    transform: scale(1.05);
 }
