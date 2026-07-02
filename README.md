@@ -10,8 +10,8 @@ This project is a photobooth appilcation that was created in my process to learn
 
 ## Features
 
-- Camera access that counts down to 4 photos being taken
-- Different frames to go around the photos
+- Camera access that counts down to 4 photos being taken, one after the other
+- Different frames to go around the photos and different filters on the photos 
 - The photostrips are downloadable 
 
 ## The Process
