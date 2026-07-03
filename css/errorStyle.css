@@ -1,0 +1,23 @@
+body {
+    box-sizing: border-box;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+
+    font-family: 'Comic Sans MS', cursive;
+    justify-content: center;
+
+
+    background-image: url("../images/background.PNG");
+    border: 1.5vw #C13B3C double;
+}
+
+h1{
+    color: #C13B3C ;
+    text-shadow: -2px -2px 0 #ffb6b7, 2px -2px 0 #ffb6b7, -2px 2px 0 #a3292e, 2px 2px 0 #a3292e;
+    
+    margin-bottom: -100px;
+
+    font-size: 100px;
+    text-align: center;
+}
